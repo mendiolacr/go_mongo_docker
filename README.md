@@ -7,7 +7,7 @@ docker-compose build
 ```
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 ## Ejecutando las pruebas ⚙️
