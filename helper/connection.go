@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -14,10 +15,11 @@ import (
 
 // ConnectDB : This is helper function to connect mongoDB
 func ConnectDB() *mongo.Collection {
+	dbURL := os.Getenv("MONGO_URL")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://root:local@localhost:27017"))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://root:rootadmin@"+dbURL+":27017"))
 
 	if err != nil {
 		log.Fatal(err)
