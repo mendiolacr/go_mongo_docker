@@ -10,6 +10,11 @@ docker-compose build
 docker-compose up
 ```
 
+## Ejecutando las pruebas ⚙️
+```bash
+go test
+```
+
 ## Construido con 🛠️
 
 * Goland
